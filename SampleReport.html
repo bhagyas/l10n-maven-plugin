@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Report goal IT - L10n properties validation report</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                    <span id="bannerLeft">
+    
+            Report goal IT
+    
+            </span>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+        Last Published: 2012-09-23
+                      </div>
+            <div class="xright">            <a href="${project.url}">Report goal IT</a>
+            
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                             <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+            
+              
+            <li class="expanded">
+                    <a href="project-reports.html">Project Reports</a>
+                  <ul>
+                  
+    <li class="none">
+              <strong>L10n validation</strong>
+        </li>
+              </ul>
+        </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <a name="summary"></a><p>Validation of properties detected some issues, including 12 blocking errors.</p>
+<ul><li><b><a href="#Unescaped_double_quote_in_js_resource">Unescaped double quote in js resource</a> 1</b></li>
+<li><b><a href="#Invalid_newline_character_in_js_resource">Invalid newline character in js resource</a> 1</b></li>
+<li><b><a href="#Unescaped_single_quotes_with_parameters">Unescaped single quotes with parameters</a> 1</b></li>
+<li><b><a href="#XHTML_Validation">XHTML Validation</a> 3</b></li>
+<li><b><a href="#Plain_text_resource_contains_HTML">Plain text resource contains HTML</a> 1</b></li>
+<li><b><a href="#URL_validation">URL validation</a> 3</b></li>
+<li><b><a href="#Plain_text_resource_contains_URL">Plain text resource contains URL</a> 1</b></li>
+<li><b><a href="#Custom_patterns">Custom patterns</a> 1</b></li>
+<li><a href="#Single_quote_escaped_but_no_parameters">Single quote escaped but no parameters</a> 1</li>
+<li><a href="#Incoherent_usage_of_parameters">Incoherent usage of parameters</a> 1</li>
+<li><a href="#Undeclared_HTML_resources">Undeclared HTML resources</a> 1</li>
+<li><a href="#Trailing_whitespaces">Trailing whitespaces</a> 2</li>
+<li><a href="#Incoherent_HTML_tags">Incoherent HTML tags</a> 1</li>
+<li><i><a href="#Identical_translations">Identical translations</a> 1</i></li>
+</ul>
+<a name="Unescaped_double_quote_in_js_resource"></a><a name="aERROR_Unescaped_double_quote_in_js_resource"></a><div class="section"><h2>[ERROR] Unescaped double quote in js resource</h2>
+<p>&quot; is not allowed in a double quoted js resources. An unescaped &quot; in [var text=&quot;&lt;fmt:message key='resource.js.label'/&gt;&quot;;] would trigger a js error in the page. Single quotes should be preferred, or double quotes need to be escaped. Note that Properties consume one \ escaping before quotes, so correct escaping will be \\&quot;.</p>
+<table class="bodyTable"><tr class="a"><th>-</th>
+<th>Property key</th>
+<th>Error</th>
+<th>Property value</th>
+</tr>
+<tr class="b"><td>1</td>
+<td>page1.js.invalid.resource1  Bundle_en_GB.properties</td>
+<td>Double quoted js resources must not contain &quot;. Use single quotes, or escaping. Note that Properties silently drop \ character before &quot;, so it mused be escaped as \\&quot; for proper js escaping</td>
+<td>[This is a &quot;js&quot; resource]</td>
+</tr>
+</table>
+</div>
+<hr />
+<a href="#summary">Up</a><a name="Invalid_newline_character_in_js_resource"></a><a name="aERROR_Invalid_newline_character_in_js_resource"></a><div class="section"><h2>[ERROR] Invalid newline character in js resource</h2>
+<p>\n and \r are not allowed in js resources. Newline character is considered as the end of a javascript statement by browsers and would create a script error.</p>
+<table class="bodyTable"><tr class="a"><th>-</th>
+<th>Property key</th>
+<th>Error</th>
+<th>Property value</th>
+</tr>
+<tr class="b"><td>2</td>
+<td>page1.js.invalid.resource2  Bundle_en_GB.properties</td>
+<td>Js resources must not contain \n nor \r, since newline is interpreted by browsers as the end of javascript statement</td>
+<td>[This is a 'js' resource
+]</td>
+</tr>
+</table>
+</div>
+<hr />
+<a href="#summary">Up</a><a name="Unescaped_single_quotes_with_parameters"></a><a name="aERROR_Unescaped_single_quotes_with_parameters"></a><div class="section"><h2>[ERROR] Unescaped single quotes with parameters</h2>
+<p>The following resources contain parameters ({0},...), as well as unescaped single quotes ('). They need to be escaped with another quote (''), or will get removed by MessageFormat (&lt;fmt:message&gt; + &lt;fmt:param&gt;). Note that ' used as escaping group (ex: 'formatting escaped {text}') is not supported by the validator and would trigger a false positive.</p>
+<table class="bodyTable"><tr class="a"><th>-</th>
+<th>Property key</th>
+<th>Error</th>
+<th>Property value</th>
+</tr>
+<tr class="b"><td>3</td>
+<td>page1.params.invalid.resource2  Bundle_en_GB.properties</td>
+<td>MessageFormat requires that ' be escaped with ''.</td>
+<td>[Hello' {0}]</td>
+</tr>
+</table>
+</div>
+<hr />
+<a href="#summary">Up</a><a name="XHTML_Validation"></a><a name="aERROR_XHTML_Validation"></a><div class="section"><h2>[ERROR] XHTML Validation</h2>
+<p>The following HTML resources did not pass XHTML 1.0 transitional validation against schema, with assumption that resource could be inserted in a &lt;div&gt;&lt;/div&gt; element. Some usual errors: unopened/unclosed tags: &lt;br&gt; [&lt;br/&gt;], &lt; br/&gt; [&lt;br/&gt;], unescaped entities: &amp; [&amp;amp;], non lowercase  tags: onClick [onclick], unquoted attributes href=http:// [href=&quot;http://&quot;]... Javascript unescaping (for js resources) as well as formatting (if resource contains any {i} parameter)) are applied before validation.</p>
+<table class="bodyTable"><tr class="a"><th>-</th>
+<th>Property key</th>
+<th>Error</th>
+<th>Property value</th>
+</tr>
+<tr class="b"><td>4</td>
+<td>page1.text.invalid.resource1  Bundle_en_GB.properties</td>
+<td>XHTML validation fatal error: The element type &quot;a&quot; must be terminated by the matching end-tag &quot;&lt;/a&gt;&quot;.</td>
+<td>[&lt;div&gt;Some Text on&lt;a href=&quot;www.google.fr&quot;&gt;Google&lt;/div&gt;]</td>
+</tr>
+<tr class="a"><td>5</td>
+<td>page1.text.invalid.resource2  Bundle_en_GB.properties</td>
+<td>XHTML validation fatal error: Element type &quot;a&quot; must be followed by either attribute specifications, &quot;&gt;&quot; or &quot;/&gt;&quot;.</td>
+<td>[&lt;div&gt;Some Text on&lt;a href=&quot;www.goo&quot;gle.fr&quot;&gt;Google&lt;/a&gt;&lt;/div&gt;]</td>
+</tr>
+<tr class="b"><td>6</td>
+<td>page1.text.invalid.resource3  Bundle_en_GB.properties</td>
+<td>XHTML validation fatal error: The element type &quot;div&quot; must be terminated by the matching end-tag &quot;&lt;/div&gt;&quot;.</td>
+<td>[&lt;div&gt;Some Text on&lt;a href=&quot;www.google.fr&quot;&gt;Google&lt;/a&gt;]</td>
+</tr>
+</table>
+</div>
+<hr />
+<a href="#summary">Up</a><a name="Plain_text_resource_contains_HTML"></a><a name="aERROR_Plain_text_resource_contains_HTML"></a><div class="section"><h2>[ERROR] Plain text resource contains HTML</h2>
+<p>The following resources were flagged as plain text (i.e for use on alt, titles, input names, etc), but seem to contain some HTML tags that will not be rendered correctly.</p>
+<table class="bodyTable"><tr class="a"><th>-</th>
+<th>Property key</th>
+<th>Error</th>
+<th>Property value</th>
+</tr>
+<tr class="b"><td>7</td>
+<td>page1.title.invalid.resource1  Bundle_en_GB.properties</td>
+<td>Text resource must not contain HTML.</td>
+<td>[This is the &lt;br/&gt; page title]</td>
+</tr>
+</table>
+</div>
+<hr />
+<a href="#summary">Up</a><a name="URL_validation"></a><a name="aERROR_URL_validation"></a><div class="section"><h2>[ERROR] URL validation</h2>
+<p>The following URL resources do not match absolute URL pattern. Frequent cause are missing protocol ( protocol relative URLs are allowed) or an extra space/newline at the end of resource. HTML unescaping as well as parameters formatting (if any) are applied before validation.</p>
+<table class="bodyTable"><tr class="a"><th>-</th>
+<th>Property key</th>
+<th>Error</th>
+<th>Property value</th>
+</tr>
+<tr class="b"><td>8</td>
+<td>page1.url.invalid.resource1  Bundle_en_GB.properties</td>
+<td>Invalid URL syntax.</td>
+<td>[www.google.fr?param=value]</td>
+</tr>
+<tr class="a"><td>9</td>
+<td>page1.url.invalid.resource3  Bundle_en_GB.properties</td>
+<td>URL for external HTML import [.png] must be scheme relative to avoid mixed content in HTTPS context.</td>
+<td>[http://www.example.com/image.png]</td>
+</tr>
+<tr class="b"><td>10</td>
+<td>page1.url.invalid.resource4  Bundle_en_GB.properties</td>
+<td>Invalid URL syntax.</td>
+<td>[mailto://mail@examplecom]</td>
+</tr>
+</table>
+</div>
+<hr />
+<a href="#summary">Up</a><a name="Plain_text_resource_contains_URL"></a><a name="aERROR_Plain_text_resource_contains_URL"></a><div class="section"><h2>[ERROR] Plain text resource contains URL</h2>
+<p>The following resources were flagged as plain text, but seem to contain an URL which would not behave as intended.</p>
+<table class="bodyTable"><tr class="a"><th>-</th>
+<th>Property key</th>
+<th>Error</th>
+<th>Property value</th>
+</tr>
+<tr class="b"><td>11</td>
+<td>page1.title.invalid.resource2  Bundle_en_GB.properties</td>
+<td>Text resource must not contain URL.</td>
+<td>[http://www.google.com]</td>
+</tr>
+</table>
+</div>
+<hr />
+<a href="#summary">Up</a><a name="Custom_patterns"></a><a name="aERROR_Custom_patterns"></a><div class="section"><h2>[ERROR] Custom patterns</h2>
+<p>The following resources did not match specified custom pattern.</p>
+<table class="bodyTable"><tr class="a"><th>-</th>
+<th>Property key</th>
+<th>Error</th>
+<th>Property value</th>
+</tr>
+<tr class="b"><td>12</td>
+<td>page1.list.invalid.resource  Bundle.properties</td>
+<td>Failed to match pattern 'List pattern' with regex ([A-Z](:[A-Z])+)?</td>
+<td>[A:B:C:D ]</td>
+</tr>
+</table>
+</div>
+<hr />
+<a href="#summary">Up</a><a name="Single_quote_escaped_but_no_parameters"></a><a name="aWARN_Single_quote_escaped_but_no_parameters"></a><div class="section"><h2>[WARN] Single quote escaped but no parameters</h2>
+<p>Escaped single quote will not be consumed unless formatting is applied (i.e &lt;fmt:param&gt; is used) even if no parameter is actually used in the resource, which may be a valid use case. In order to simplify a bit, for js resource with some parametric replacement being done in javascript, the formatter should consume escaped quote as MessageFormat does.  </p>
+<table class="bodyTable"><tr class="a"><th>-</th>
+<th>Property key</th>
+<th>Error</th>
+<th>Property value</th>
+</tr>
+<tr class="b"><td>13</td>
+<td>page1.params.invalid.resource3  Bundle_en_GB.properties</td>
+<td>Resource contains escaped quote '' but no parameters. This may be correct if formatter is called with unused parameters.</td>
+<td>[Hello'']</td>
+</tr>
+</table>
+</div>
+<hr />
+<a href="#summary">Up</a><a name="Incoherent_usage_of_parameters"></a><a name="aWARN_Incoherent_usage_of_parameters"></a><div class="section"><h2>[WARN] Incoherent usage of parameters</h2>
+<p>Some parameters are used differently (either number of parameters and/or index used) between properties sharing the same key. For the comparison, parameter order is ignored, as well as sub-formatting elements (i.e. {0,date} is considered as {0})</p>
+<table class="bodyTable"><tr class="a"><th>-</th>
+<th>Property key</th>
+<th>Error</th>
+<th>Property value</th>
+</tr>
+<tr class="b"><td>14</td>
+<td>page1.params.resource  [Bundle_en_GB.properties]</td>
+<td>Incoherent usage of parameters: [{0}] versus [{1}] in &lt;[Bundle_FR.properties]&gt;</td>
+<td>[null]</td>
+</tr>
+</table>
+</div>
+<hr />
+<a href="#summary">Up</a><a name="Undeclared_HTML_resources"></a><a name="aWARN_Undeclared_HTML_resources"></a><div class="section"><h2>[WARN] Undeclared HTML resources</h2>
+<p>The following resources seem to contain HTML, but keys were not configured as such in plugin configuration.</p>
+<table class="bodyTable"><tr class="a"><th>-</th>
+<th>Property key</th>
+<th>Error</th>
+<th>Property value</th>
+</tr>
+<tr class="b"><td>15</td>
+<td>page1.other.resource  Bundle_en_GB.properties</td>
+<td>Resource may contain HTML, but key does not match expected pattern [.text.]. No validation was performed.</td>
+<td>[&lt;span&gt;Some other text&lt;/span&gt;]</td>
+</tr>
+</table>
+</div>
+<hr />
+<a href="#summary">Up</a><a name="Trailing_whitespaces"></a><a name="aWARN_Trailing_whitespaces"></a><div class="section"><h2>[WARN] Trailing whitespaces</h2>
+<p>The following resources end with a whitespace char (\n, \t, ...). This is likely a bad copy/paste of control characters.</p>
+<table class="bodyTable"><tr class="a"><th>-</th>
+<th>Property key</th>
+<th>Error</th>
+<th>Property value</th>
+</tr>
+<tr class="b"><td>16</td>
+<td>page1.js.invalid.resource2  Bundle_en_GB.properties</td>
+<td>Resource ends with whitespace character [\n] which may indicate some resources concatenation</td>
+<td>[This is a 'js' resource
+]</td>
+</tr>
+<tr class="a"><td>17</td>
+<td>page1.list.invalid.resource  Bundle.properties</td>
+<td>Resource ends with whitespace character [ ] which may indicate some resources concatenation</td>
+<td>[A:B:C:D ]</td>
+</tr>
+</table>
+</div>
+<hr />
+<a href="#summary">Up</a><a name="Incoherent_HTML_tags"></a><a name="aWARN_Incoherent_HTML_tags"></a><div class="section"><h2>[WARN] Incoherent HTML tags</h2>
+<p>The following HTML resources have an incoherent usage of html tags. </p>
+<table class="bodyTable"><tr class="b"><th>-</th>
+<th>Property key</th>
+<th>Error</th>
+<th>Property value</th>
+</tr>
+<tr class="a"><td>18</td>
+<td>page1.text.resource  [Bundle_FR.properties]</td>
+<td>Incoherent usage of html tags: [] versus [div, a] in &lt;[Bundle_en_GB.properties]&gt;</td>
+<td>[null]</td>
+</tr>
+</table>
+</div>
+<hr />
+<a href="#summary">Up</a><a name="Identical_translations"></a><a name="aINFO_Identical_translations"></a><div class="section"><h2>[INFO] Identical translations</h2>
+<p>The following resources have the same translation in all languages. If resources are not language dependent, they could be moved to root bundle to avoid duplication.</p>
+<table class="bodyTable"><tr class="b"><th>-</th>
+<th>Property key</th>
+<th>Error</th>
+<th>Property value</th>
+</tr>
+<tr class="a"><td>19</td>
+<td>page1.same.resource  [Bundle_en_GB.properties, Bundle_FR.properties]</td>
+<td>Resource has identical translation in all languages, it could be defined in a root bundle</td>
+<td>[2012]</td>
+</tr>
+</table>
+</div>
+<hr />
+<a href="#summary">Up</a>
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2012
+    
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>
